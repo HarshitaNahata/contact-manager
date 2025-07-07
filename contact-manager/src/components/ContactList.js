@@ -1,12 +1,13 @@
 import React from 'react';
 import ContactItem from './ContactItem';
+import { List, Typography } from '@mui/material';
 
 function ContactList({ contacts, onEdit, onDelete }) {
     if (contacts.length === 0) {
-        return <p>No contacts found.</p>;
+        return <Typography align="center" color="text.secondary">No contacts found.</Typography>;
     }
     return (
-        <ul style={{ listStyle: 'none', padding: 0 }}>
+        <List>
             {contacts.map(contact => (
                 <ContactItem
                     key={contact.email}
@@ -15,7 +16,7 @@ function ContactList({ contacts, onEdit, onDelete }) {
                     onDelete={onDelete}
                 />
             ))}
-        </ul>
+        </List>
     );
 }
 

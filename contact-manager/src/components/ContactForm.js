@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { isValidEmail, isDuplicateEmail } from '../utils/validation';
+import { TextField, Button, Paper, Stack, Typography } from '@mui/material';
 
 function ContactForm({ addContact, editContact, contactToEdit, contacts, clearEdit }) {
     const [contact, setContact] = useState({
@@ -55,51 +56,67 @@ function ContactForm({ addContact, editContact, contactToEdit, contacts, clearEd
     };
 
     return (
-        <form onSubmit={handleSubmit} style={{ marginBottom: '2rem' }}>
-            <input
-                name="firstName"
-                placeholder="First Name"
-                value={contact.firstName}
-                onChange={handleChange}
-                required
-            />
-            <input
-                name="lastName"
-                placeholder="Last Name"
-                value={contact.lastName}
-                onChange={handleChange}
-                required
-            />
-            <input
-                name="address"
-                placeholder="Address"
-                value={contact.address}
-                onChange={handleChange}
-                required
-            />
-            <input
-                name="email"
-                placeholder="Email"
-                value={contact.email}
-                onChange={handleChange}
-                required
-                type="email"
-            />
-            <input
-                name="phone"
-                placeholder="Phone Number"
-                value={contact.phone}
-                onChange={handleChange}
-                required
-            />
-            <button type="submit">{contactToEdit ? 'Update' : 'Add'} Contact</button>
-            {contactToEdit && (
-                <button type="button" onClick={clearEdit} style={{ marginLeft: '1rem' }}>
-                    Cancel
-                </button>
-            )}
-            {error && <div style={{ color: 'red' }}>{error}</div>}
-        </form>
+        <Paper sx={{ p: 3, mb: 3 }}>
+            <form onSubmit={handleSubmit}>
+                <Typography variant="h6" gutterBottom>
+                    {contactToEdit ? 'Edit Contact' : 'Add Contact'}
+                </Typography>
+                <Stack spacing={2}>
+                    <TextField
+                        label="First Name"
+                        name="firstName"
+                        value={contact.firstName}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                    />
+                    <TextField
+                        label="Last Name"
+                        name="lastName"
+                        value={contact.lastName}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                    />
+                    <TextField
+                        label="Address"
+                        name="address"
+                        value={contact.address}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                    />
+                    <TextField
+                        label="Email"
+                        name="email"
+                        value={contact.email}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                        type="email"
+                    />
+                    <TextField
+                        label="Phone Number"
+                        name="phone"
+                        value={contact.phone}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                    />
+                    <Stack direction="row" spacing={2}>
+                        <Button variant="contained" type="submit">
+                            {contactToEdit ? 'Update' : 'Add'}
+                        </Button>
+                        {contactToEdit && (
+                            <Button variant="outlined" type="button" onClick={clearEdit}>
+                                Cancel
+                            </Button>
+                        )}
+                    </Stack>
+                    {error && <Typography color="error">{error}</Typography>}
+                </Stack>
+            </form>
+        </Paper>
     );
 }
 

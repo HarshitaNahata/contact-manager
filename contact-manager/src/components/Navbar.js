@@ -1,10 +1,17 @@
 import React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 
 function Navbar() {
     return (
-        <nav style={{ padding: '1rem', background: '#1976d2', color: 'white' }}>
-            <h2>Contact Manager</h2>
-        </nav>
+        <AppBar position="static">
+            <Toolbar>
+                <Typography variant="h6" component="div">
+                    Contact Manager
+                </Typography>
+            </Toolbar>
+        </AppBar>
     );
 }
 
