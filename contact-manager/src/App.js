@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
 
-const API_URL = 'http://localhost:5000/api/contacts';
+const API_URL = 'https://contact-manager-fnzt.onrender.com/api/contacts';
 
 function App() {
   const [contacts, setContacts] = useState([]);
