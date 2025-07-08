@@ -12,9 +12,17 @@ function ContactItem({ contact, onEdit, onDelete }) {
                     <IconButton edge="end" aria-label="edit" onClick={() => onEdit(contact)}>
                         <EditIcon />
                     </IconButton>
-                    <IconButton edge="end" aria-label="delete" onClick={() => onDelete(contact)}>
+                    <IconButton
+                        edge="end"
+                        aria-label="delete"
+                        onClick={() => {
+                            console.log('Contact passed to onDelete:', contact);
+                            onDelete(contact);
+                        }}
+                    >
                         <DeleteIcon />
                     </IconButton>
+
 
                 </>
             }
