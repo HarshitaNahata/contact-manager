@@ -35,7 +35,7 @@ function ContactForm({ addContact, editContact, contactToEdit, contacts, clearEd
     const handleSubmit = e => {
         e.preventDefault();
         if (!isValidEmail(contact.email)) {
-            setError('Invalid email format.');
+            setError('Email contains invalid characters or format.');
             return;
         }
         if (!isValidPhone(contact.phone)) {
