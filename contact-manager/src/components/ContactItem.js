@@ -12,7 +12,7 @@ function ContactItem({ contact, onEdit, onDelete }) {
                     <IconButton edge="end" aria-label="edit" onClick={() => onEdit(contact)}>
                         <EditIcon />
                     </IconButton>
-                    <IconButton edge="end" aria-label="delete" onClick={() => onDelete(contact._id)}>
+                    <IconButton edge="end" aria-label="delete" onClick={() => onDelete(contact)}>
                         <DeleteIcon />
                     </IconButton>
 
