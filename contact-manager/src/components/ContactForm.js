@@ -11,6 +11,7 @@ function ContactForm({ addContact, editContact, contactToEdit, contacts, clearEd
         phone: ''
     });
     const [error, setError] = useState('');
+    const [phoneError, setPhoneError] = useState('');
 
     useEffect(() => {
         if (contactToEdit) {
@@ -29,12 +30,19 @@ function ContactForm({ addContact, editContact, contactToEdit, contacts, clearEd
     const handleChange = e => {
         setContact({ ...contact, [e.target.name]: e.target.value });
     };
+    const isValidPhone = (phone) => /^\d+$/.test(phone);
 
     const handleSubmit = e => {
         e.preventDefault();
         if (!isValidEmail(contact.email)) {
             setError('Invalid email format.');
             return;
+        }
+        if (!isValidPhone(contact.phone)) {
+            setPhoneError('Phone number must contain only digits.');
+            return;
+        } else {
+            setPhoneError('');
         }
         if (!contactToEdit && isDuplicateEmail(contact.email, contacts)) {
             setError('Email already exists.');
@@ -102,6 +110,8 @@ function ContactForm({ addContact, editContact, contactToEdit, contacts, clearEd
                         onChange={handleChange}
                         required
                         fullWidth
+                        error={!!phoneError}
+                        helperText={phoneError}
                     />
                     <Stack direction="row" spacing={2}>
                         <Button variant="contained" type="submit">
