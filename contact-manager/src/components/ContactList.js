@@ -10,7 +10,7 @@ function ContactList({ contacts, onEdit, onDelete }) {
         <List>
             {contacts.map(contact => (
                 <ContactItem
-                    key={contact.email}
+                    key={contact._id}
                     contact={contact}
                     onEdit={onEdit}
                     onDelete={onDelete}
