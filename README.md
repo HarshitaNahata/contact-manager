@@ -1,6 +1,6 @@
 # 📇 Contact Manager
 
-A full-stack Contact Manager application with a modern, responsive UI and persistent cloud storage. Easily add, view, update, and delete contacts—all powered by a robust MERN stack and deployed for seamless access online.
+A full-stack Contact Manager application with a modern, responsive UI and persistent cloud storage. Easily add, view, update, and delete contacts—all powered by a robust MERN stack and deployed for seamless access online for users.
 
 ---
 
